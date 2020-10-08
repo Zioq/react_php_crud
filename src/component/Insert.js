@@ -64,6 +64,15 @@ class Insert extends Component {
         };
 
         //console.log(obj);
+        axios.post('http://localhost:8888/reactJsCRUD/insert.php',obj)
+        .then(res => console.log(res.data));
+
+        this.setState({
+            name:"",
+            position: "",
+            phone:"",
+            passcode: ""
+        });
     }
 
   render() {
@@ -78,6 +87,7 @@ class Insert extends Component {
           <div className="form-group">
             <label for= "positionFormSelect">Position: </label>
             <select class="form-control" id="positionFormSelect" value={this.state.position} onChange={this.onChangePosition}>
+              <option>Select the position</option>
               <option>Manager</option>
               <option>Server</option>
               <option>Cook</option>
