@@ -64,6 +64,7 @@ class Insert extends Component {
         };
 
         //console.log(obj);
+        // change the post url as a your webserver location.
         axios.post('http://localhost:8888/reactJsCRUD/insert.php',obj)
         .then(res => console.log(res.data));
 
