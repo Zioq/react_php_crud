@@ -5,32 +5,27 @@ require_once 'cors.php';
 cors();
 $con = connect();
 
-//print_r($_POST);
-
+// Get the poseted data
 $postdata  = file_get_contents("php://input");
-
 if (isset($postdata) && !empty($postdata)) {
     //convert json data to PHP object
     $request = json_decode($postdata);
 
     print_r($request);
 
-    // Sanitize
+    //Sanitize
+    $id = $_GET['id'];
     $name = $request->name;
     $position = $request->position;
     $phone = $request->phone;
     $passcode = $request->passcode;
 
-    // SQL process
-    $sql = "INSERT INTO employee (employeeName, employeePosition, employeePhone, employeePasscode) VALUES ('{$name}', '{$position}', '{$phone}', '{$passcode}' )";
+    // Update
+    $sql = "UPDATE employee SET employeeName = '{$name}',employeePosition = '{$position}', employeePhone = '{$phone}', employeePasscode = '{$passcode}' WHERE employeeId = '{$id}' LIMIT 1";
     var_dump($sql);
     if (mysqli_query($con, $sql)) {
-        http_response_code(201);
+        http_response_code(204);
     } else {
         http_response_code(422);
     }
 }
-
-
-
-//cors($con);
