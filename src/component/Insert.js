@@ -86,8 +86,8 @@ class Insert extends Component {
             <input type="text" className="form-control"  value={this.state.name} onChange={this.onChangeName} />
           </div>
           <div className="form-group">
-            <label for= "positionFormSelect">Position: </label>
-            <select class="form-control" id="positionFormSelect" value={this.state.position} onChange={this.onChangePosition}>
+            <label htmlFor= "positionFormSelect">Position: </label>
+            <select className="form-control" id="positionFormSelect" value={this.state.position} onChange={this.onChangePosition}>
               <option>Select the position</option>
               <option>Manager</option>
               <option>Server</option>

@@ -1,6 +1,7 @@
 import React,  {Component} from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router';
+import {Link} from 'react-router-dom';
 
 
 class RecordsList extends Component {
@@ -39,7 +40,7 @@ class RecordsList extends Component {
                     {this.props.obj.employeePhone}
                 </td>
                 <td>
-                    <button className = "btn btn-primary"> Edit</button>
+                    <Link to={"/edit/" +this.props.obj.employeeId} className = "btn btn-primary"> Edit</Link>
                 </td>
                 <td>
                     <button onClick={this.delete} className = "btn btn-danger"> Delete</button>
